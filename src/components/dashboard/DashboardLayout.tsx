@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { BarChart3, Hospital, Users, MapPin } from "lucide-react";
+import { BarChart3, Hospital, Users, MapPin, Upload } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -30,6 +31,12 @@ export const DashboardLayout = ({ children, activeView, onViewChange }: Dashboar
                 <p className="text-sm text-muted-foreground">Insights para Gestores de Saúde</p>
               </div>
             </div>
+            <Link to="/import">
+              <Button variant="outline" className="flex items-center gap-2">
+                <Upload className="h-4 w-4" />
+                Importar Dados
+              </Button>
+            </Link>
           </div>
         </div>
       </header>

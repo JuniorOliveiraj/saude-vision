@@ -76,3 +76,109 @@ export const mockMonthlyData = [
   { month: "Mai", patients: 108000, revenue: 15200000 },
   { month: "Jun", patients: 112000, revenue: 15800000 },
 ];
+
+export const mockImportHistory = [
+  {
+    id: "1",
+    fileName: "hospitais_sp_2025.json",
+    dataType: "hospitals" as const,
+    fileFormat: "json" as const,
+    uploadDate: new Date("2025-09-20T10:30:00"),
+    status: "success" as const,
+    summary: "1000 de 1000 registros importados com sucesso",
+    totalRecords: 1000,
+    successfulRecords: 1000,
+    errorRecords: 0,
+    description: "Dados dos hospitais do estado de São Paulo - Setembro/2025"
+  },
+  {
+    id: "2",
+    fileName: "medicos_rj_setembro.xml",
+    dataType: "doctors" as const,
+    fileFormat: "xml" as const,
+    uploadDate: new Date("2025-09-20T09:15:00"),
+    status: "warning" as const,
+    summary: "980 de 1000 registros importados. 15 duplicados ignorados, 5 com erro",
+    totalRecords: 1000,
+    successfulRecords: 980,
+    errorRecords: 5,
+    duplicateRecords: 15,
+    description: "Médicos do Rio de Janeiro - Setembro 2025",
+    errors: [
+      {
+        line: 52,
+        field: "data_nascimento",
+        message: "O valor '30/02/2001' não é uma data válida",
+        data: "30/02/2001"
+      },
+      {
+        line: 115,
+        field: "municipio_id",
+        message: "O município com ID '9999' não foi encontrado na base de dados",
+        data: "9999"
+      },
+      {
+        line: 203,
+        field: "crm_numero",
+        message: "CRM já existe na base de dados",
+        data: "CRM/RJ 123456"
+      },
+      {
+        line: 456,
+        field: "especialidade_id",
+        message: "Especialidade com ID '999' não encontrada",
+        data: "999"
+      },
+      {
+        line: 789,
+        field: "email",
+        message: "Formato de email inválido",
+        data: "medico@email@invalido.com"
+      }
+    ]
+  },
+  {
+    id: "3",
+    fileName: "pacientes_mg_agosto.csv",
+    dataType: "patients" as const,
+    fileFormat: "csv" as const,
+    uploadDate: new Date("2025-09-19T16:45:00"),
+    status: "error" as const,
+    summary: "Arquivo com formato inválido ou corrompido",
+    totalRecords: 0,
+    successfulRecords: 0,
+    errorRecords: 1,
+    description: "Pacientes de Minas Gerais - Agosto 2025",
+    errors: [
+      {
+        line: 1,
+        field: "arquivo",
+        message: "Arquivo CSV corrompido ou formato inválido. Verifique a codificação e separadores",
+        data: "N/A"
+      }
+    ]
+  },
+  {
+    id: "4",
+    fileName: "cid10_atualizacao.json",
+    dataType: "cid10" as const,
+    fileFormat: "json" as const,
+    uploadDate: new Date("2025-09-19T14:20:00"),
+    status: "processing" as const,
+    summary: "Processando arquivo...",
+    description: "Atualização da tabela CID-10 - versão 2025"
+  },
+  {
+    id: "5",
+    fileName: "municipios_brasil.xml",
+    dataType: "locations" as const,
+    fileFormat: "xml" as const,
+    uploadDate: new Date("2025-09-18T11:30:00"),
+    status: "success" as const,
+    summary: "5570 de 5570 municípios importados com sucesso",
+    totalRecords: 5570,
+    successfulRecords: 5570,
+    errorRecords: 0,
+    description: "Dados completos dos municípios brasileiros - IBGE 2025"
+  }
+];
